@@ -47,13 +47,14 @@ int main(int argc, char **argv)
     twolame_options *encodeOptions;
     char *inputfilename = argv[1];
     char *outputfilename = argv[2];
-    FILE *outfile;
+    FILE *outfile, *fpSrc = NULL;
     short int *pcmaudio;
     unsigned char *mp2buffer;
     int num_samples = 0;
     int mp2fill_size = 0;
     int frames = 0;
     wave_info_t *wave_info = NULL;
+		int nReadSize = 0;
 
     if (argc != 3)
         usage();
@@ -112,13 +113,24 @@ int main(int argc, char **argv)
         fprintf(stderr, "error opening output file %s\n", outputfilename);
         exit(99);
     }
-    // Read num_samples of audio data *per channel* from the input file
-    while ((num_samples = wave_get_samples(wave_info, pcmaudio, AUDIOBUFSIZE/2)) != 0) {
 
+    // Read num_samples of audio data *per channel* from the input file
+    //while ((num_samples = wave_get_samples(wave_info, pcmaudio, AUDIOBUFSIZE/2)) != 0) {
+	
+
+
+
+	fpSrc = fopen( "a2002011001-e02.wav", "rb" );
+	while(1)
+	{
+		num_samples = fread( pcmaudio, sizeof( char ), AUDIOBUFSIZE, fpSrc );
         // Encode the audio!2024*4
 
+		if( num_samples != AUDIOBUFSIZE )
+			break;
+
         mp2fill_size =
-            twolame_encode_buffer_interleaved(encodeOptions, pcmaudio, num_samples, mp2buffer,
+            twolame_encode_buffer_interleaved(encodeOptions, pcmaudio, num_samples/2, mp2buffer,
                                               MP2BUFSIZE);
 
         // Write the MPEG bitstream to the file
