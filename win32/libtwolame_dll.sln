@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libtwolame_dll", "libtwolame_dll.vcproj", "{DFB06356-061D-4EAD-82F5-4696149B6F01}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TwoLameTest", "..\TwoLameTest\TwoLameTest.vcproj", "{1A782446-8993-48E5-A8AF-C72EA7E3B301}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DFB06356-061D-4EAD-82F5-4696149B6F01} = {DFB06356-061D-4EAD-82F5-4696149B6F01}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DFB06356-061D-4EAD-82F5-4696149B6F01}.Debug|Win32.ActiveCfg = Debug|Win32
+		{DFB06356-061D-4EAD-82F5-4696149B6F01}.Debug|Win32.Build.0 = Debug|Win32
+		{DFB06356-061D-4EAD-82F5-4696149B6F01}.Release|Win32.ActiveCfg = Release|Win32
+		{DFB06356-061D-4EAD-82F5-4696149B6F01}.Release|Win32.Build.0 = Release|Win32
+		{1A782446-8993-48E5-A8AF-C72EA7E3B301}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1A782446-8993-48E5-A8AF-C72EA7E3B301}.Debug|Win32.Build.0 = Debug|Win32
+		{1A782446-8993-48E5-A8AF-C72EA7E3B301}.Release|Win32.ActiveCfg = Release|Win32
+		{1A782446-8993-48E5-A8AF-C72EA7E3B301}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
