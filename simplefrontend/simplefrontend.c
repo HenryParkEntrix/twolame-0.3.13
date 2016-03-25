@@ -123,13 +123,15 @@ int main(int argc, char **argv)
 	fpSrc = fopen( "a2002011001-e02.wav", "rb" );
 	while(1)
 	{
-		num_samples = fread( pcmaudio, sizeof( char ), AUDIOBUFSIZE, fpSrc );
+		num_samples = fread( pcmaudio, sizeof( char ), AUDIOBUFSIZE/2, fpSrc );
         // Encode the audio!2024*4
 
-		if( num_samples != AUDIOBUFSIZE )
+		if( num_samples != AUDIOBUFSIZE/2 )
 			break;
 
-        mp2fill_size =
+		num_samples /= 2;
+
+		mp2fill_size =
             twolame_encode_buffer_interleaved(encodeOptions, pcmaudio, num_samples/2, mp2buffer,
                                               MP2BUFSIZE);
 
